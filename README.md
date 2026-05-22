@@ -1,6 +1,6 @@
 # CO2-Sammlerdruck-Bestimmung
 
-[Zur Live-Anwendung](https://co2sammler.streamlit.app/).
+[**Zur Live-Anwendung**](https://co2sammler.streamlit.app/)
 
 Dieses Projekt stellt ein webbasiertes Tool zur Verfügung, mit dem der **maximale absolute Sammlerstillstandsdruck** für **CO2** aus Sammlervolumen, Kältemittelfüllmenge und maximaler Umgebungstemperatur bestimmt wird. Die Berechnung basiert auf der in der hochgeladenen Python-Datei enthaltenen Logik mit **CoolProp** und der Zustandsbestimmung über Dichte und Temperatur.
 
