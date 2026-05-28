@@ -3,10 +3,13 @@ import streamlit as st
 import CoolProp.CoolProp as cp
 
 APP_TITLE = "CO2-Sammlerdruck-Bestimmung"
-APP_VERSION = "0.2.1V"
+APP_VERSION = "0.2.2V"
 GITHUB_URL = "https://github.com/div-ne/CO2-Sammlerdruck-Bestimmung"
 
 st.set_page_config(page_title=APP_TITLE, layout="wide", page_icon="logo.png")
+
+if "run_calculation" not in st.session_state:
+    st.session_state["run_calculation"] = False
 
 
 def calculate_pressure(volume_l, mass_kg, ambient_temp_c):
@@ -47,16 +50,21 @@ with left:
     mass_kg = st.number_input("Kältemittelfüllmenge [kg]", min_value=0.01, value=5.0, step=0.1)
     ambient_temp_c = st.number_input("Maximale Umgebungstemperatur [°C]", value=40.0, step=0.1)
     run = st.button("Berechnen", use_container_width=True)
+    if run:
+        st.session_state["run_calculation"] = True
 
 with right:
     st.subheader("Ergebnis")
-    if run:
+    if run or st.session_state.get("run_calculation", False):
         try:
+            if run:
+                st.session_state["run_calculation"] = True
             result_df = calculate_pressure(float(volume_l), float(mass_kg), float(ambient_temp_c))
             st.dataframe(result_df, use_container_width=True, hide_index=True)
+            csv_content = f"{APP_TITLE};{APP_VERSION}\n" + result_df.to_csv(index=False, sep=";")
             st.download_button(
                 label="CSV herunterladen",
-                data=result_df.to_csv(index=False, sep=";").encode("utf-8"),
+                data=csv_content.encode("utf-8-sig"),
                 file_name="co2-sammlerdruck-ergebnis.csv",
                 mime="text/csv",
                 use_container_width=True,
