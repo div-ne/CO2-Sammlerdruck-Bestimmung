@@ -3,7 +3,7 @@ import streamlit as st
 import CoolProp.CoolProp as cp
 
 APP_TITLE = "CO2-Sammlerdruck-Bestimmung"
-APP_VERSION = "0.1.1V"
+APP_VERSION = "0.2.1V"
 GITHUB_URL = "https://github.com/div-ne/CO2-Sammlerdruck-Bestimmung"
 
 st.set_page_config(page_title=APP_TITLE, layout="wide", page_icon="logo.png")
@@ -15,11 +15,6 @@ def calculate_pressure(volume_l, mass_kg, ambient_temp_c):
     density = mass_kg / volume_m3
     pressure_pa = cp.PropsSI("P", "D", density, "T", ambient_temp_k, "CO2")
     pressure_bar = pressure_pa / 1e5
-    result_text = (
-        f"Der maximale absolute Druck bei gegebenem Sammlervolumen von V = {volume_l:.2f} l "
-        f"und gegebener Kältemittelfüllmenge m = {mass_kg:.2f} kg beträgt {pressure_bar:.2f} bar "
-        f"bei T = {ambient_temp_c:.2f} °C."
-    )
     result_table = pd.DataFrame(
         [
             ("Sammlervolumen [l]", round(volume_l, 2)),
@@ -66,8 +61,6 @@ with right:
                 mime="text/csv",
                 use_container_width=True,
             )
-            with st.expander("Textausgabe"):
-                st.write(result_text)
         except Exception as e:
             st.error(f"Fehler bei der Berechnung: {e}")
     else:
