@@ -25,7 +25,7 @@ def calculate_pressure(volume_l, mass_kg, ambient_temp_c):
         ],
         columns=["Parameter", "Wert"],
     )
-    return result_table, result_text
+    return result_table
 
 
 st.markdown(
@@ -52,7 +52,7 @@ with right:
     st.subheader("Ergebnis")
     if run:
         try:
-            result_df, result_text = calculate_pressure(float(volume_l), float(mass_kg), float(ambient_temp_c))
+            result_df = calculate_pressure(float(volume_l), float(mass_kg), float(ambient_temp_c))
             st.dataframe(result_df, use_container_width=True, hide_index=True)
             st.download_button(
                 label="CSV herunterladen",
