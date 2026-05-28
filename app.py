@@ -65,7 +65,7 @@ with right:
             st.download_button(
                 label="CSV herunterladen",
                 data=csv_content.encode("utf-8-sig"),
-                file_name="co2-sammlerdruck-ergebnis.csv",
+                file_name="CO2-Sammlerdruck-Bestimmung.csv",
                 mime="text/csv",
                 use_container_width=True,
             )
