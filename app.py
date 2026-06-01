@@ -3,7 +3,7 @@ import streamlit as st
 import CoolProp.CoolProp as cp
 
 APP_TITLE = "CO2-Sammlerdruck-Bestimmung"
-APP_VERSION = "0.2.2V"
+APP_VERSION = "0.2.4V"
 GITHUB_URL = "https://github.com/div-ne/CO2-Sammlerdruck-Bestimmung"
 
 st.set_page_config(page_title=APP_TITLE, layout="wide", page_icon="logo.png")
@@ -46,6 +46,7 @@ st.caption("Bestimmung des maximalen absoluten Sammlerstillstandsdrucks für CO2
 left, right = st.columns([1, 1.2])
 
 with left:
+    st.subheader("Eingabe")
     volume_l = st.number_input("Gesamtes Sammlervolumen [l]", min_value=0.01, value=10.0, step=0.1)
     mass_kg = st.number_input("Kältemittelfüllmenge [kg]", min_value=0.01, value=5.0, step=0.1)
     ambient_temp_c = st.number_input("Maximale Umgebungstemperatur [°C]", value=40.0, step=0.1)
