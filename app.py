@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import CoolProp.CoolProp as cp
 
-APP_TITLE = "CO2-Sammlerdruck-Bestimmung"
+APP_TITLE = "CO2-Sammlerdruck Bestimmung"
 APP_VERSION = "v1.0.0"
 
 st.set_page_config(page_title=APP_TITLE, layout="wide", page_icon="logo.png")
