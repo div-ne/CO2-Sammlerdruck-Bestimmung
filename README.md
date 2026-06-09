@@ -1,4 +1,4 @@
-# CO2 Sammlerdruck Bestimmung
+# CO2-Sammlerdruck Bestimmung
 
 [**Zur Anwendung**](https://co2sammler.streamlit.app/)
 
