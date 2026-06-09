@@ -3,8 +3,7 @@ import streamlit as st
 import CoolProp.CoolProp as cp
 
 APP_TITLE = "CO2-Sammlerdruck-Bestimmung"
-APP_VERSION = "0.2.4V"
-GITHUB_URL = "https://github.com/div-ne/CO2-Sammlerdruck-Bestimmung"
+APP_VERSION = "v1.0.0"
 
 st.set_page_config(page_title=APP_TITLE, layout="wide", page_icon="logo.png")
 
@@ -79,18 +78,15 @@ st.markdown("---")
 with st.expander("Anleitung"):
     st.markdown(
         f"""
-Mit diesem Tool wird der **maximale absolute Sammlerstillstandsdruck** für **CO2** berechnet.
+        Mit diesem Tool wird der **maximale absolute Sammlerstillstandsdruck** für **CO2** berechnet.
 
-Dafür wird die Eingabe folgender Werte benötigt:
-- **Gesamtes Sammlervolumen [l]**,
-- **Kältemittelfüllmenge [kg]**,
-- **maximale Umgebungstemperatur [°C]**.
+        Dafür wird die Eingabe folgender Werte benötigt:
+        - **Gesamtes Sammlervolumen [l]**,
+        - **Kältemittelfüllmenge [kg]**,
+        - **maximale Umgebungstemperatur [°C]**.
 
-Aus diesen Eingaben wird zunächst die **Dichte** des Kältemittels im Sammler bestimmt. Anschließend wird der zugehörige absolute Druck für CO2 berechnet.
+        Aus diesen Eingaben wird zunächst die **Dichte** des Kältemittels im Sammler bestimmt. Anschließend wird der zugehörige absolute Druck für CO2 berechnet.
 
-Die Ergebnisanzeige enthält die wichtigsten Eingangs- und Ergebnisgrößen in Tabellenform. Zusätzlich kann die Ausgabe als **CSV-Datei** heruntergeladen werden.
-
-Repository:
-[{GITHUB_URL}]({GITHUB_URL})
-"""
+        Repository: https://github.com/div-ne/CO2-Sammlerdruck-Bestimmung
+        """
     )
